@@ -28,13 +28,13 @@ export default function Dashboard() {
     <div className="space-y-6 animate-in fade-in duration-500">
       {/* Hero section */}
       <div className="py-12 md:py-20 flex flex-col items-center justify-center text-center border-b border-slate-200/60 mb-8 reveal-1">
-        <div className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200/60 bg-white/60 text-xs font-medium text-slate-500 mb-6 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-slate-900 mr-2 animate-pulse"></span>
+        <div className="inline-flex items-center px-3 py-1 rounded-full border border-blue-200 bg-blue-50/50 text-xs font-medium text-blue-600 mb-6 shadow-sm hover:scale-105 transition-transform duration-300">
+          <span className="w-2 h-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
           Powered by NIFTY50 Machine Learning API
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6">
           Stock Price <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-400 to-blue-600 animate-text-shimmer">
             Prediction Engine
           </span>
         </h1>
