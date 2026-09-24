@@ -54,19 +54,19 @@ export default function ModelPerformance() {
               <h3 className="text-xl font-bold text-slate-900 mb-6">{model.model_name}</h3>
               
               <div className="space-y-4">
-                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60/50">
+                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
                   <span className="text-slate-500 text-sm">Accuracy</span>
                   <span className="text-lg font-bold text-financial-green">{model.accuracy_pct}%</span>
                 </div>
-                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60/50">
+                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
                   <span className="text-slate-500 text-sm">R² Score</span>
                   <span className="text-lg font-bold text-slate-900">{model.r2_score.toFixed(4)}</span>
                 </div>
-                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60/50">
+                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
                   <span className="text-slate-500 text-sm">RMSE</span>
                   <span className="text-lg font-bold text-slate-900">{model.rmse.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60/50">
+                <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
                   <span className="text-slate-500 text-sm">MAE</span>
                   <span className="text-lg font-bold text-slate-900">{model.mae.toFixed(2)}</span>
                 </div>
@@ -77,7 +77,7 @@ export default function ModelPerformance() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 reveal-3">
-        <div className="card p-6 h-[400px]">
+        <div className="card p-6 h-[300px] md:h-[400px]">
           <h3 className="text-lg font-bold text-slate-900 mb-6">Model Accuracy Comparison</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -90,7 +90,7 @@ export default function ModelPerformance() {
           </ResponsiveContainer>
         </div>
 
-        <div className="card p-6 h-[400px]">
+        <div className="card p-6 h-[300px] md:h-[400px]">
           <h3 className="text-lg font-bold text-slate-900 mb-6">Feature Weights (Linear Regression)</h3>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={weights} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>

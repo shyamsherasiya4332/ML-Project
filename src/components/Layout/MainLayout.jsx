@@ -19,7 +19,7 @@ export default function MainLayout() {
           <div className="max-w-7xl mx-auto min-h-[calc(100vh-10rem)]">
             <Outlet />
           </div>
-          <footer className="max-w-7xl mx-auto mt-12 py-6 border-t border-slate-200/60/50 text-center">
+          <footer className="max-w-7xl mx-auto mt-12 py-6 border-t border-slate-200/60 text-center">
             <p className="text-sm font-medium text-slate-500 mb-1">
               AI Stock Prediction — Machine Learning Project
             </p>

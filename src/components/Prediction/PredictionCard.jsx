@@ -49,7 +49,7 @@ export default function PredictionCard({ result }) {
         </div>
 
         <div className="grid grid-cols-2 gap-4 mt-6 relative z-10">
-          <div className="bg-white/50 p-4 rounded-xl border border-slate-200/60/50 backdrop-blur-sm">
+          <div className="bg-white/50 p-4 rounded-xl border border-slate-200/60 backdrop-blur-sm">
             <p className="text-xs text-slate-500 mb-1 flex items-center">
               <TrendingUp className="w-3 h-3 mr-1" /> Diff From Close
             </p>
@@ -61,7 +61,7 @@ export default function PredictionCard({ result }) {
             </p>
           </div>
           
-          <div className="bg-white/50 p-4 rounded-xl border border-slate-200/60/50 backdrop-blur-sm">
+          <div className="bg-white/50 p-4 rounded-xl border border-slate-200/60 backdrop-blur-sm">
             <p className="text-xs text-slate-500 mb-1 flex items-center">
               <Zap className="w-3 h-3 mr-1" /> % From Close
             </p>
@@ -75,7 +75,7 @@ export default function PredictionCard({ result }) {
         </div>
         
         {active_model === 'all' && all_models && (
-          <div className="mt-4 bg-white/50 p-3 rounded-xl border border-slate-200/60/50 text-sm">
+          <div className="mt-4 bg-white/50 p-3 rounded-xl border border-slate-200/60 text-sm">
             <p className="text-slate-500 mb-2 font-medium">All Models Comparison:</p>
             <div className="flex justify-between text-xs">
               <span className="text-slate-900">Linear: ₹{all_models.linear?.toFixed(2)}</span>
@@ -86,7 +86,7 @@ export default function PredictionCard({ result }) {
         )}
       </div>
       
-      <div className="mt-4 pt-4 border-t border-slate-200/60/50 flex justify-end items-center text-xs text-slate-500 relative z-10">
+      <div className="mt-4 pt-4 border-t border-slate-200/60 flex justify-end items-center text-xs text-slate-500 relative z-10">
         <div>
           Based on model output. Not financial advice.
         </div>
