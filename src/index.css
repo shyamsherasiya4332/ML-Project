@@ -7,6 +7,7 @@
     @apply bg-slate-100 text-slate-900 antialiased min-h-screen relative overflow-x-hidden;
     background-image: radial-gradient(circle at center, #cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
+    letter-spacing: -0.015em;
     animation: move-grid 15s linear infinite;
   }
   
