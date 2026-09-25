@@ -83,6 +83,8 @@ export default function PredictionForm({ onPredict, loading, initialData }) {
                 <option value="linear">Linear Regression</option>
                 <option value="polynomial">Polynomial Regression</option>
                 <option value="svr">Support Vector Regression (SVR)</option>
+                <option value="adaboost">AdaBoost Regressor</option>
+                <option value="random_forest">Random Forest</option>
                 <option value="all">Compare All Models</option>
               </select>
               <ChevronDown className="absolute right-3 top-2.5 w-4 h-4 text-slate-500 pointer-events-none" />

@@ -77,10 +77,12 @@ export default function PredictionCard({ result }) {
         {active_model === 'all' && all_models && (
           <div className="mt-4 bg-white/50 p-3 rounded-xl border border-slate-200/60 text-sm">
             <p className="text-slate-500 mb-2 font-medium">All Models Comparison:</p>
-            <div className="flex justify-between text-xs">
-              <span className="text-slate-900">Linear: ₹{all_models.linear?.toFixed(2)}</span>
-              <span className="text-slate-900">Poly: ₹{all_models.polynomial?.toFixed(2)}</span>
-              <span className="text-slate-900">SVR: ₹{all_models.svr?.toFixed(2)}</span>
+            <div className="flex flex-wrap justify-between gap-2 text-xs">
+              <span className="text-slate-900 w-[45%]">Linear: ₹{all_models.linear?.toFixed(2)}</span>
+              <span className="text-slate-900 w-[45%]">Poly: ₹{all_models.polynomial?.toFixed(2)}</span>
+              <span className="text-slate-900 w-[45%]">SVR: ₹{all_models.svr?.toFixed(2)}</span>
+              <span className="text-slate-900 w-[45%]">AdaBoost: ₹{all_models.adaboost?.toFixed(2)}</span>
+              <span className="text-slate-900 w-[45%]">RF: ₹{all_models.random_forest?.toFixed(2)}</span>
             </div>
           </div>
         )}
