@@ -51,15 +51,17 @@ export default function ModelPerformance() {
           const model = metrics[key];
           const isPolynomial = key === 'polynomial' || model.model_name.toLowerCase().includes('poly');
           return (
-            <div key={key} className={`card p-6 relative ${isPolynomial ? 'ring-2 ring-indigo-500 bg-indigo-50/10' : ''}`}>
-              {isPolynomial && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold rounded-full shadow-md animate-pulse">
-                  Final Model
-                </div>
-              )}
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
-                {model.model_name}
-              </h3>
+            <div key={key} className={`card p-6 ${isPolynomial ? 'ring-2 ring-indigo-500 bg-indigo-50/40 scale-[1.02] shadow-lg' : ''}`}>
+              <div className="flex justify-between items-start mb-6 gap-2">
+                <h3 className="text-xl font-bold text-slate-900 leading-tight">
+                  {model.model_name}
+                </h3>
+                {isPolynomial && (
+                  <span className="shrink-0 px-2.5 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full shadow-sm animate-pulse flex items-center">
+                    ★ Final Model
+                  </span>
+                )}
+              </div>
               
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
