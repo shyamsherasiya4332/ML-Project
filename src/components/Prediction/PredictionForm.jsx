@@ -12,7 +12,7 @@ export default function PredictionForm({ onPredict, loading, initialData }) {
     turnover: '',
     deliverable_volume: '',
     percent_deliverable: '',
-    model_type: 'linear'
+    model_type: 'polynomial'
   });
 
   useEffect(() => {

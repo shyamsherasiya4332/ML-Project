@@ -39,7 +39,7 @@ export default function Dashboard() {
           </span>
         </h1>
         <p className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto mb-8">
-          Harness the power of Linear Regression, Polynomial models, SVR, AdaBoost, and Random Forest to analyze historical features and accurately predict stock high prices.
+          Harness the power of our finely-tuned <strong className="text-slate-700">Polynomial Regression (Degree 2)</strong> model to analyze historical features and accurately predict stock high prices. Outperforming Linear, SVR, and ensemble models for the highest accuracy.
         </p>
         <div className="flex space-x-4">
           <Link to="/prediction" className="btn-primary px-8 py-3 rounded-xl font-semibold">
@@ -110,8 +110,8 @@ export default function Dashboard() {
             <div className="relative flex items-start group/step">
               <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-slate-300 bg-white shrink-0 mt-0.5 z-10 shadow-sm ring-4 ring-white"></div>
               <div className="ml-4 w-full p-4 bg-white border border-slate-200/60 rounded-xl">
-                <h4 className="font-bold text-slate-900 text-sm">Model Training</h4>
-                <p className="text-xs text-slate-500 mt-1">Train Linear, Polynomial, SVR, AdaBoost, and Random Forest models.</p>
+                <h4 className="font-bold text-slate-900 text-sm">Model Training & Selection</h4>
+                <p className="text-xs text-slate-500 mt-1">Train various models and select Polynomial Regression as the final optimal model.</p>
               </div>
             </div>
 

@@ -49,9 +49,17 @@ export default function ModelPerformance() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-2">
         {Object.keys(metrics).map(key => {
           const model = metrics[key];
+          const isPolynomial = key === 'polynomial' || model.model_name.toLowerCase().includes('poly');
           return (
-            <div key={key} className="card p-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-6">{model.model_name}</h3>
+            <div key={key} className={`card p-6 relative ${isPolynomial ? 'ring-2 ring-indigo-500 bg-indigo-50/10' : ''}`}>
+              {isPolynomial && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold rounded-full shadow-md animate-pulse">
+                  Final Model
+                </div>
+              )}
+              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center">
+                {model.model_name}
+              </h3>
               
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-3 border-b border-slate-200/60">
