@@ -16,8 +16,24 @@ export default function PredictionCard({ result }) {
 
   const { predicted_high, model_name_display, metrics, active_model, all_models, inputs } = result;
   
+  // Calculate average if all models are selected
+  let display_high = predicted_high;
+  let display_diff = metrics?.diff_from_close;
+  let display_pct = metrics?.pct_from_close;
+  let display_model_name = model_name_display;
+
+  if (active_model === 'all' && all_models) {
+    const vals = Object.values(all_models).filter(v => typeof v === 'number');
+    if (vals.length > 0) {
+      display_high = vals.reduce((a, b) => a + b, 0) / vals.length;
+      display_diff = display_high - (inputs?.close_price || 0);
+      display_pct = (display_diff / (inputs?.close_price || 1)) * 100;
+      display_model_name = "Average of All Models";
+    }
+  }
+  
   // We'll use diff_from_close to determine if positive or negative trend compared to close
-  const isPositive = metrics.diff_from_close >= 0;
+  const isPositive = display_diff >= 0;
 
   return (
     <div className={clsx(
@@ -34,7 +50,7 @@ export default function PredictionCard({ result }) {
               {isPositive ? <TrendingUp className="w-3 h-3 mr-1" /> : <TrendingDown className="w-3 h-3 mr-1" />}
               {isPositive ? "HIGHER THAN CLOSE" : "LOWER THAN CLOSE"}
             </span>
-            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">₹{predicted_high?.toFixed(2)}</h2>
+            <h2 className="text-4xl font-bold text-slate-900 tracking-tight">₹{display_high?.toFixed(2)}</h2>
             <p className="text-slate-500 mt-1">Predicted High Price</p>
           </div>
           
@@ -43,7 +59,7 @@ export default function PredictionCard({ result }) {
             <p className="text-slate-500 mt-1 text-sm">Last Close Price</p>
             <div className="mt-2 inline-flex items-center text-xs font-medium bg-white px-2 py-1 rounded border border-slate-200/60">
               <Activity className="w-3 h-3 mr-1 text-slate-900" />
-              {model_name_display}
+              {display_model_name}
             </div>
           </div>
         </div>
@@ -57,7 +73,7 @@ export default function PredictionCard({ result }) {
               "text-lg font-bold",
               isPositive ? "text-financial-green" : "text-financial-red"
             )}>
-              {isPositive ? '+' : ''}₹{metrics?.diff_from_close?.toFixed(2)}
+              {isPositive ? '+' : ''}₹{display_diff?.toFixed(2)}
             </p>
           </div>
           
@@ -69,20 +85,21 @@ export default function PredictionCard({ result }) {
               "text-lg font-bold",
               isPositive ? "text-financial-green" : "text-financial-red"
             )}>
-              {isPositive ? '+' : ''}{metrics?.pct_from_close?.toFixed(2)}%
+              {isPositive ? '+' : ''}{display_pct?.toFixed(2)}%
             </p>
           </div>
         </div>
         
         {active_model === 'all' && all_models && (
-          <div className="mt-4 bg-white/50 p-3 rounded-xl border border-slate-200/60 text-sm">
-            <p className="text-slate-500 mb-2 font-medium">All Models Comparison:</p>
+          <div className="mt-4 bg-indigo-50/50 p-3 rounded-xl border border-indigo-100 text-sm">
+            <p className="text-indigo-800 mb-2 font-semibold">All Models Comparison:</p>
             <div className="flex flex-wrap justify-between gap-2 text-xs">
-              <span className="text-slate-900 w-[45%]">Linear: ₹{all_models.linear?.toFixed(2)}</span>
-              <span className="text-slate-900 w-[45%]">Poly: ₹{all_models.polynomial?.toFixed(2)}</span>
-              <span className="text-slate-900 w-[45%]">SVR: ₹{all_models.svr?.toFixed(2)}</span>
-              <span className="text-slate-900 w-[45%]">AdaBoost: ₹{all_models.adaboost?.toFixed(2)}</span>
-              <span className="text-slate-900 w-[45%]">RF: ₹{all_models.random_forest?.toFixed(2)}</span>
+              <span className="text-slate-700 w-[45%]">Linear: ₹{all_models.linear?.toFixed(2)}</span>
+              <span className="text-slate-700 w-[45%]">Poly: ₹{all_models.polynomial?.toFixed(2)}</span>
+              <span className="text-slate-700 w-[45%]">SVR: ₹{all_models.svr?.toFixed(2)}</span>
+              <span className="text-slate-700 w-[45%]">AdaBoost: ₹{all_models.adaboost?.toFixed(2)}</span>
+              <span className="text-slate-700 w-[45%]">RF: ₹{all_models.random_forest?.toFixed(2)}</span>
+              <span className="text-indigo-600 font-bold w-[45%]">Average: ₹{display_high?.toFixed(2)}</span>
             </div>
           </div>
         )}
